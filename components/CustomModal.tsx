@@ -89,27 +89,31 @@ const CustomModal: React.FC<ReusableModalProps> = ({
           },
         ]}
       >
-        <Text style={[styles.modalTitle,{marginBottom:5}]}>Outage Information : </Text>
-        <View style={{gap:5}}>
-        <View style={styles.textModalContainer}>
-          <Text style={styles.textTitle} >Size : </Text>
-          <Text>{hitData?._source.customerCount} customer affected</Text>
-        </View>
-        <View style={styles.textModalContainer}>
-          <Text style={styles.textTitle}>Caused by : </Text>
-          <Text>{hitData?._source.reason} customer affected</Text>
-        </View>
-        <View style={styles.textModalContainer}>
-          <Text style={styles.textTitle}>Status : </Text>
-          <Text>{hitData?._source.status} customer affected</Text>
-        </View>
-        <View style={styles.textModalContainer}>
-          <Text style={styles.textTitle}>
-            Always assume that a downed power line is energized and move away to safety
-            If this is a life-threatening situation call{' '}
-            <Text style={[styles.textTitle,{color:"blue"}]}>911</Text>
-          </Text>
-        </View>
+        <Text style={[styles.modalTitle, { marginBottom: 5 }]}>Outage Information : </Text>
+        <View style={{ gap: 5 }}>
+          <View style={styles.textModalContainer}>
+            <Text style={styles.textTitle} >Size : </Text>
+            <Text>{hitData?._source.customerCount} customer affected</Text>
+          </View>
+          <View style={styles.textModalContainer}>
+            <Text style={styles.textTitle} >Outage ID : </Text>
+            <Text>{hitData?._source.incidentId}</Text>
+          </View>
+          <View style={styles.textModalContainer}>
+            <Text style={styles.textTitle}>Caused by : </Text>
+            <Text>{hitData?._source.reason} customer affected</Text>
+          </View>
+          <View style={styles.textModalContainer}>
+            <Text style={styles.textTitle}>Status : </Text>
+            <Text>{hitData?._source.status} customer affected</Text>
+          </View>
+          <View style={styles.textModalContainer}>
+            <Text style={styles.textTitle}>
+              Always assume that a downed power line is energized and move away to safety
+              If this is a life-threatening situation call{' '}
+              <Text style={[styles.textTitle, { color: "blue" }]}>911</Text>
+            </Text>
+          </View>
         </View>
       </Animated.View>
     </Modal>
@@ -119,21 +123,21 @@ const CustomModal: React.FC<ReusableModalProps> = ({
 const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+
     ...Platform.select({
       android: { elevation: 10 },
       ios: { zIndex: 10 },
     }),
   },
-  textTitle:{
-    fontWeight:"bold"
+  textTitle: {
+    fontWeight: "bold"
   },
-  modalTitle:{
-    fontWeight:"bold"
+  modalTitle: {
+    fontWeight: "bold"
   },
-  textModalContainer:{
-    flexDirection:"row",
-    flexWrap:"wrap"
+  textModalContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap"
   },
   modalContainer: {
     position: 'absolute',

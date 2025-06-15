@@ -73,3 +73,7 @@ export interface PolygonCoords {
   longitude: number
 }
 
+export type LatLng = {
+  latitude: number;
+  longitude: number;
+};
